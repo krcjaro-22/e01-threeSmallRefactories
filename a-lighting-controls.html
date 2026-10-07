@@ -29,21 +29,18 @@
     const swatch = document.querySelector("#swatch");
 
     function update() {
-        let item = presets[0];
-        for (let i = 0; i < presets.length; i++) {
-          if (i === presetIndex) item = presets[i];
-        }
+        let item = presets[presetIndex];
         label.textContent = item.name;
         swatch.style.backgroundColor = item.color;
-    } 
-    
+        }
+     
 
     document.querySelector("#next").addEventListener("click", () => {
       presetIndex = (presetIndex + 1) % presets.length;
       update();
     });
     document.querySelector("#previous").addEventListener("click", () => {
-      presetIndex = (presetIndex - 1 + presets.length) % X.length;
+      presetIndex = (presetIndex - 1 + presets.length) % presets.length;
       update();
     });
     update();
